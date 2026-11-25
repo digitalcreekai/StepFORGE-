@@ -1,6 +1,6 @@
 # Stepforge Local Storage utilities
 
-A standalone TypeScript module for persisting non-sensitive Stepforge shopping state in browser `localStorage`. It contains no pages, components, styling, or product catalog. Browser storage is resolved only when a function is called, so importing the module during Next.js server rendering is safe.
+A TypeScript module for persisting non-sensitive Stepforge shopping state in browser `localStorage`. It contains no pages, components, styling, or product catalog. Browser storage is resolved only when a function is called, so importing the module during Next.js server rendering is safe.
 
 ## Structure
 
