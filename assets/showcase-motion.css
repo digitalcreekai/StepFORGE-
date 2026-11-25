@@ -1,0 +1,20 @@
+/* The approved rotating showcase plays once and leaves the original hero in place. */
+.hero-showcase{position:absolute;inset:0;z-index:3;overflow:hidden;pointer-events:none;animation:showcase-finish 6.8s both}
+.showcase-ring{position:absolute;left:42%;top:10%;width:min(62vw,720px);aspect-ratio:1;border:2px solid rgba(50,96,128,.5);border-radius:50%;opacity:0;animation:showcase-ring 2.5s ease-out .3s both}
+.showcase-label{position:absolute;top:18%;left:53%;color:var(--brown);font-size:.9rem;font-weight:950;letter-spacing:.24em;opacity:0;animation:showcase-label 4.7s ease .55s both}
+.showcase-shoe{position:absolute;top:21%;left:45%;width:min(52vw,720px);height:auto;opacity:0;filter:drop-shadow(0 28px 25px rgba(24,59,82,.3))}
+.shoe-one{animation:showcase-orbit 2.2s cubic-bezier(.65,0,.35,1) .25s both}
+.shoe-two{animation:showcase-orbit 2.2s cubic-bezier(.65,0,.35,1) 1.45s both}
+.shoe-three{animation:showcase-final 2.5s cubic-bezier(.65,0,.35,1) 2.65s both}
+.hero-copy>*{animation:none}
+.hero-copy>:nth-child(1){animation-delay:4.45s}.hero-copy>:nth-child(2){animation-delay:4.6s}.hero-copy>:nth-child(3){animation-delay:4.75s}.hero-copy>:nth-child(4){animation-delay:4.9s}.hero-copy>:nth-child(5){animation-delay:5.05s}.hero-copy>:nth-child(6){animation-delay:5.2s}
+@keyframes showcase-ring{0%{transform:scale(.1);opacity:0}25%{opacity:1}100%{transform:scale(1.4);opacity:0}}
+@keyframes showcase-orbit{0%{transform:translate(120%,-70%) rotate(25deg) scale(.55);opacity:0}26%{opacity:1}52%{transform:translate(-3%,4%) rotate(-7deg) scale(1.05);opacity:1}77%{opacity:1}100%{transform:translate(-115%,85%) rotate(-24deg) scale(.56);opacity:0}}
+@keyframes showcase-final{0%{transform:translate(118%,-70%) rotate(24deg) scale(.55);opacity:0}24%{opacity:1}56%{transform:translate(-3%,4%) rotate(-7deg) scale(1.05);opacity:1}79%{opacity:1}100%{transform:translate(-18%,13%) rotate(0) scale(.92);opacity:0}}
+@keyframes showcase-label{0%,90%,100%{opacity:0}10%,75%{opacity:1}}
+@keyframes showcase-finish{0%,95%{visibility:visible}100%{visibility:hidden}}
+@keyframes showcase-rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+/* Keep the page complete on first paint, then play the showcase after assets load. */
+.hero-showcase,.hero-showcase *{animation-play-state:paused}
+.hero.motion-ready .hero-showcase,.hero.motion-ready .hero-showcase *{animation-play-state:running}
+@media(max-width:760px){.showcase-ring{left:17%;top:15%;width:83%}.showcase-label{left:7%;top:17%;font-size:.7rem}.showcase-shoe{left:3%;top:28%;width:94%}}
