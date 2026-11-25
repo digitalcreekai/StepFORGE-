@@ -86,7 +86,7 @@ async function pay(){
  if(S.paying)return;
  if(!S.terms){S.err={terms:'Accept the terms to continue.'};return render()}
  const items=cart(); if(!items.length){S.step=0;return render()}
- S.paying=true;S.err={};S.view='busy';render();
+ S.paying=true;S.err={};
  const totals=calc(); const orderId='SF-'+Date.now();
  const order={orderNumber:orderId,orderId,orderDate:new Date().toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'}),paymentStatus:'paid',paymentMethod:'Simulated payment',items:items.map(i=>({productId:i.id,name:CAT[i.id].n,brand:window.StepForgeProducts.find(p=>String(p.id)===i.id)?.brand||'',size:'US '+i.size,quantity:i.qty,price:CAT[i.id].p,image:CAT[i.id].img})),subtotal:totals.sub,deliveryFee:totals.ship,total:totals.total,customerName:S.cust.name,phone:S.cust.phone,address:[S.cust.address,S.cust.city,S.cust.state].filter(Boolean).join(', '),deliveryDate:'To be confirmed'};
  // A real backend payment call can replace this simulated payment in the future.
@@ -117,6 +117,7 @@ addEventListener('pageshow',e=>{if(e.persisted){S.paying=false;if(S.view==='busy
 StepForgeStore.subscribe(()=>{if(S.view==='form')render()});
 
 (function init(){if(!S.cust.city)S.cust.city='Lagos';if(!S.cust.state)S.cust.state='Lagos';render();quote()})();
+
 
 
 
