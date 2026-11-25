@@ -2,7 +2,7 @@
 // This page reads the order saved by the checkout page in localStorage.
 // Expected storage key: "stepForgeOrder"
 
-const STORAGE_KEY = "stepForgeOrder";
+
 
 const confirmationContent = document.getElementById("confirmation-content");
 const paymentState = document.getElementById("payment-state");
@@ -127,8 +127,7 @@ function loadOrder() {
 
   let order;
   try {
-    const savedOrder = localStorage.getItem(STORAGE_KEY);
-    order = savedOrder ? JSON.parse(savedOrder) : null;
+    order = window.StepForgeStore.getOrder();
   } catch (error) {
     console.error("Could not read the saved Step Forge order:", error);
     showPaymentMessage(
@@ -164,3 +163,5 @@ document.getElementById("print-order").addEventListener("click", () => {
 });
 
 loadOrder();
+
+
