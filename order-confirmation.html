@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your Step Forge order confirmation.">
+  <title>Order Confirmation | Step Forge</title>
+  <link rel="stylesheet" href="order-confirmation.css">
+  <script src="order-confirmation.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Step Forge home">
+        <img class="brand-logo" src="assets/step-forge-logo.jpg" alt="Step Forge SF logo">
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-copy">
+          <span class="brand-name">STEP FORGE</span>
+          <span class="brand-tagline">STEP INTO YOUR STYLE.</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <section id="payment-state" class="status-panel" aria-live="polite">
+        <div class="status-icon status-icon--pending" aria-hidden="true">!</div>
+        <p class="eyebrow">STEP FORGE</p>
+        <h1 id="status-title">Your order is not confirmed yet</h1>
+        <p id="status-message">
+          We could not find a completed payment for this order. If you have just checked out,
+          please return to the checkout page or contact the store for help.
+        </p>
+        <a class="button button-primary" href="shop.html">Continue Shopping</a>
+      </section>
+
+      <section id="confirmation-content" class="confirmation-card" hidden>
+        <div class="success-heading">
+          <div class="success-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" aria-label="Success">
+              <path d="m5 12.5 4.2 4.2L19.5 6.8"></path>
+            </svg>
+          </div>
+          <p class="eyebrow">THANK YOU FOR CHOOSING STEP FORGE</p>
+          <h1>Order Confirmed!</h1>
+          <p class="welcome-line">We're excited to get your new kicks to you.</p>
+          <p class="order-reference">Order number: <strong id="order-number">—</strong></p>
+        </div>
+
+        <section class="detail-card" aria-labelledby="summary-heading">
+          <div class="section-heading">
+            <div class="heading-icon" aria-hidden="true">▣</div>
+            <h2 id="summary-heading">Your Order Summary</h2>
+            <span class="order-date" id="order-date"></span>
+          </div>
+
+          <div id="ordered-items" class="ordered-items"></div>
+
+          <div class="price-breakdown">
+            <div class="price-row">
+              <span>Subtotal</span>
+              <strong id="subtotal">₦0</strong>
+            </div>
+            <div class="price-row">
+              <span>Delivery fee</span>
+              <strong id="delivery-fee">₦0</strong>
+            </div>
+            <div class="price-row price-total">
+              <span>Total paid</span>
+              <strong id="total">₦0</strong>
+            </div>
+          </div>
+          <div class="payment-line">
+            <span>Payment method</span>
+            <strong id="payment-method">—</strong>
+          </div>
+        </section>
+
+        <section class="detail-card delivery-card" aria-labelledby="delivery-heading">
+          <div class="section-heading">
+            <div class="heading-icon" aria-hidden="true">↗</div>
+            <h2 id="delivery-heading">Delivery Information</h2>
+          </div>
+          <div class="delivery-grid">
+            <div class="delivery-detail">
+              <span class="detail-label">Customer name</span>
+              <strong id="customer-name">—</strong>
+            </div>
+            <div class="delivery-detail">
+              <span class="detail-label">Phone number</span>
+              <strong id="customer-phone">—</strong>
+            </div>
+            <div class="delivery-detail delivery-address">
+              <span class="detail-label">Delivery address</span>
+              <strong id="delivery-address">—</strong>
+            </div>
+          </div>
+          <div class="delivery-estimate">
+            <span aria-hidden="true">▦</span>
+            <span>Estimated delivery: <strong id="delivery-date">To be confirmed</strong></span>
+          </div>
+        </section>
+
+        <div class="next-step-note">
+          <strong>What's next?</strong>
+          <span>Your order is being prepared. Keep your order number handy in case you need help.</span>
+        </div>
+
+        <div class="action-buttons">
+          <a class="button button-primary" href="shop.html">Continue Shopping <span aria-hidden="true">→</span></a>
+          <button class="button button-outline" id="print-order" type="button">
+            <span aria-hidden="true">▤</span> Print Receipt
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="index.html" aria-label="Step Forge home">
+        <img src="assets/step-forge-logo.jpg" alt="">
+        <span>
+          <strong>STEP FORGE</strong>
+          <small>STEP INTO YOUR STYLE.</small>
+        </span>
+      </a>
+      <div class="footer-message">
+        <strong>Thanks for making us part of your journey.</strong>
+        <span>© <span id="footer-year"></span> Step Forge. All rights reserved.</span>
+      </div>
+      <div class="footer-social" aria-label="Social media">
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="TikTok">♪</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
